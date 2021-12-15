@@ -10,7 +10,7 @@ import useFetch from '../../Hooks/useFetch/useFetch';
 import Config from 'react-native-config';
 
 const Products = () => {
-  const {loading, error, data} = useFetch(Config.API_URL + 'adsas');
+  const {loading, error, data} = useFetch(Config.API_URL);
 
   const renderProducts = ({item}) => <ProductCard product={item} />;
 
