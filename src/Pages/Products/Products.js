@@ -1,22 +1,25 @@
 import React from 'react';
-import {SafeAreaView, FlatList, ActivityIndicator, Text} from 'react-native';
+import {SafeAreaView, FlatList} from 'react-native';
 
 import ProductCard from '../../Components/ProductCard';
+import Loading from '../../Components/Loading';
+import Error from '../../Components/Error';
 
-import Config from 'react-native-config';
 import useFetch from '../../Hooks/useFetch/useFetch';
 
+import Config from 'react-native-config';
+
 const Products = () => {
-  const {loading, error, data} = useFetch(Config.API_URL);
+  const {loading, error, data} = useFetch(Config.API_URL + 'adsas');
 
   const renderProducts = ({item}) => <ProductCard product={item} />;
 
   if (loading) {
-    return <ActivityIndicator size="large" />;
+    return <Loading />;
   }
 
   if (error) {
-    return <Text>{error}</Text>;
+    return <Error />;
   }
 
   return (
