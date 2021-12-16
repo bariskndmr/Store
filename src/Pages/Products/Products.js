@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, FlatList} from 'react-native';
+import {FlatList} from 'react-native';
 
 import ProductCard from '../../Components/ProductCard';
 import Loading from '../../Components/Loading';
@@ -9,10 +9,16 @@ import useFetch from '../../Hooks/useFetch/useFetch';
 
 import Config from 'react-native-config';
 
-const Products = () => {
+const Products = ({navigation}) => {
   const {loading, error, data} = useFetch(Config.API_URL);
 
-  const renderProducts = ({item}) => <ProductCard product={item} />;
+  const handleSelectProduct = id => {
+    navigation.navigate('DetailPage', [id]);
+  };
+
+  const renderProducts = ({item}) => (
+    <ProductCard product={item} onSelect={() => handleSelectProduct(item.id)} />
+  );
 
   if (loading) {
     return <Loading />;
@@ -22,11 +28,7 @@ const Products = () => {
     return <Error />;
   }
 
-  return (
-    <SafeAreaView>
-      <FlatList data={data} renderItem={renderProducts} />
-    </SafeAreaView>
-  );
+  return <FlatList data={data} renderItem={renderProducts} />;
 };
 
 export default Products;
