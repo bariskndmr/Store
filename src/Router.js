@@ -7,11 +7,16 @@ import Products from './Pages/Products';
 import Login from './Pages/Login/Login';
 
 const Stack = createNativeStackNavigator();
+const screenOptions = {
+  title: 'Products',
+  headerStyle: {backgroundColor: '#607d8b'},
+  headerTitleStyle: {color: 'white', fontWeight: 'bold'},
+};
 
 const Router = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator>
+      <Stack.Navigator initialRouteName="LoginPage">
         <Stack.Screen
           name="LoginPage"
           component={Login}
@@ -20,21 +25,12 @@ const Router = () => {
         <Stack.Screen
           name="ProductsPage"
           component={Products}
-          options={{
-            title: 'Products',
-            headerStyle: {backgroundColor: '#607d8b'},
-            headerTitleStyle: {color: 'white', fontWeight: 'bold'},
-          }}
+          options={screenOptions}
         />
         <Stack.Screen
           name="DetailPage"
           component={Detail}
-          options={{
-            title: 'Details',
-            headerStyle: {backgroundColor: '#607d8b'},
-            headerTitleStyle: {color: 'white', fontWeight: 'bold'},
-            headerTintColor: 'white',
-          }}
+          options={screenOptions}
         />
       </Stack.Navigator>
     </NavigationContainer>

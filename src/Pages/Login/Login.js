@@ -9,7 +9,10 @@ const Login = () => {
   return (
     <SafeAreaView style={Styles.container}>
       <View style={Styles.logoContainer}>
-        <Image />
+        <Image
+          style={Styles.image}
+          source={require('../../assets/Images/basket.png')}
+        />
       </View>
       <View style={Styles.bodyContainer}>
         <Input placeholder="Kullanıcı ismi giriniz..." />
