@@ -10,7 +10,7 @@ import useFetch from '../../Hooks/useFetch/useFetch';
 import Config from 'react-native-config';
 
 const Products = ({navigation}) => {
-  const {loading, error, data} = useFetch(Config.API_URL);
+  const {loading, error, data} = useFetch(Config.API_PRODUCT_URL);
 
   const handleSelectProduct = id => {
     navigation.navigate('DetailPage', [id]);

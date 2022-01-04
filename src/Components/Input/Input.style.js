@@ -7,5 +7,9 @@ export default StyleSheet.create({
     padding: 10,
     borderRadius: 6,
     backgroundColor: 'white',
+    flexDirection: 'row',
+  },
+  input: {
+    flex: 1,
   },
 });
