@@ -3,6 +3,7 @@ import {Alert, Image, SafeAreaView, View} from 'react-native';
 
 import Config from 'react-native-config';
 import {Formik} from 'formik';
+import {useDispatch} from 'react-redux';
 
 import Button from '../../Components/Button';
 import Input from '../../Components/Input';
@@ -12,6 +13,7 @@ import usePost from '../../Hooks/usePost';
 
 const Login = ({navigation}) => {
   const {data, loading, error, post} = usePost();
+  const dispatch = useDispatch();
 
   const handleLogin = values => {
     post(Config.API_AUTH_URL + '/login', values);
@@ -25,6 +27,7 @@ const Login = ({navigation}) => {
     if (data.status === 'Error') {
       Alert.alert('Dükkan', 'Kullanıcı Bulunamadı!');
     } else {
+      dispatch({type: 'SET_USER', payload: {user}});
       navigation.navigate('ProductsPage');
     }
     console.log(data);
@@ -70,3 +73,26 @@ const Login = ({navigation}) => {
 };
 
 export default Login;
+
+const user = {
+  address: {
+    geolocation: {
+      lat: '-37.3159',
+      long: '81.1496',
+    },
+    city: 'kilcoole',
+    street: 'new road',
+    number: 7682,
+    zipcode: '12926-3874',
+  },
+  id: 1,
+  email: 'john@gmail.com',
+  username: 'johnd',
+  password: 'm38rmF$',
+  name: {
+    firstname: 'john',
+    lastname: 'doe',
+  },
+  phone: '1-570-236-7033',
+  __v: 0,
+};
