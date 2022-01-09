@@ -2,12 +2,11 @@
 import React from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {NavigationContainer} from '@react-navigation/native';
+import {useSelector} from 'react-redux';
 
 import Detail from './Pages/Detail';
 import Products from './Pages/Products';
 import Login from './Pages/Login/Login';
-
-import {useSelector} from 'react-redux';
 
 const Stack = createNativeStackNavigator();
 const screenOptions = {

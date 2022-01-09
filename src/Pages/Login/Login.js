@@ -1,6 +1,5 @@
 import React from 'react';
 import {Alert, Image, SafeAreaView, View} from 'react-native';
-
 import Config from 'react-native-config';
 import {Formik} from 'formik';
 import {useDispatch} from 'react-redux';

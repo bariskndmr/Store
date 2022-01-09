@@ -1,12 +1,11 @@
 import React from 'react';
 import {Image, ScrollView, Text, View} from 'react-native';
 import Styles from './Detail.style';
+import Config from 'react-native-config';
 
 import useFetch from '../../Hooks/useFetch/useFetch';
 import Error from '../../Components/Error';
 import Loading from '../../Components/Loading';
-
-import Config from 'react-native-config';
 
 const Detail = ({route}) => {
   const id = route.params;
