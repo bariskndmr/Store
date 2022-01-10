@@ -8,6 +8,10 @@ export default function reducers(state, action) {
       AsyncStorage.setItem('@USER', JSON.stringify(user)); // JSON.stringify, json datayı diziye dönüştürür
       return {...state, user};
 
+    case 'REMOVE_USER':
+      AsyncStorage.removeItem('@USER');
+      return {...state, user};
+
     default:
       return state;
   }
