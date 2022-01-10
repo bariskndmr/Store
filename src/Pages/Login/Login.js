@@ -27,9 +27,7 @@ const Login = ({navigation}) => {
       Alert.alert('Dükkan', 'Kullanıcı Bulunamadı!');
     } else {
       dispatch({type: 'SET_USER', payload: {user}});
-      navigation.navigate('ProductsPage');
     }
-    console.log(data);
   }
 
   return (
