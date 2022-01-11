@@ -8,6 +8,7 @@ import {
   DrawerItemList,
 } from '@react-navigation/drawer';
 import {useDispatch, useSelector} from 'react-redux';
+import 'react-native-gesture-handler';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 
 import Detail from './Pages/Detail';
